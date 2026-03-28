@@ -228,7 +228,13 @@ public class SinglyLinkedList<T> {
                     tail = previous;
                 }
 
-                
+                size--;
+                removed++;
+                runner = previous.getNext(); // continuar
+            } else {
+                previous = runner;
+                runner = runner.getNext();
+            }
         }
 
         current = current.getNext();
