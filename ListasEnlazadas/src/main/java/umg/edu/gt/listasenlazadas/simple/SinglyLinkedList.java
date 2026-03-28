@@ -211,8 +211,30 @@ public class SinglyLinkedList<T> {
      * @return cantidad de nodos eliminados por duplicados
      */
     public int removeDuplicates() {
-        throw new UnsupportedOperationException(
-                "TODO RETO: Implementar removeDuplicates() en SinglyLinkedList.");
+        int removed = 0;
+
+    SimpleNode<T> current = head;
+
+    while (current != null) {
+        SimpleNode<T> previous = current;
+        SimpleNode<T> runner = current.getNext();
+
+        while (runner != null) {
+            if (isSameValue(current.getValue(), runner.getValue())) {
+                // eliminar runner
+                previous.setNext(runner.getNext());
+
+                if (runner == tail) {
+                    tail = previous;
+                }
+
+                
+        }
+
+        current = current.getNext();
+    }
+
+    return removed;
     }
 
     @Override
