@@ -180,8 +180,15 @@ public class SinglyLinkedList<T> {
         SimpleNode<T> previous = null;
     SimpleNode<T> current = head;
     tail = head; // el antiguo head será el nuevo tail
-
     
+    while (current != null) {
+        SimpleNode<T> next = current.getNext(); // guardar siguiente
+        current.setNext(previous); // invertir enlace
+        previous = current; // avanzar previous
+        current = next; // avanzar current
+    }
+
+    head = previous; // nuevo head
     }
 
     /**
